@@ -1,0 +1,1134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    min-height: 100vh;
+    position: relative;
+    padding: 2vh 8vw 2vh 8vw;
+    margin: 0;
+    overflow-x: hidden;
+    /* Fallback Background Image */
+    background-image: url('images/background.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* Cache le curseur par défaut */
+    cursor: none;
+}
+
+/* --- Forcer le curseur personnalisé partout --- */
+a,
+button,
+input,
+textarea,
+.project-tab-button,
+.skill-category li,
+.social-links a,
+.language-toggle,
+.audio-toggle {
+    cursor: none;
+}
+/* --- FIN MODIFICATION --- */
+
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.05);
+    z-index: -1;
+}
+
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    filter: blur(8px);
+}
+
+/* === INDICATEUR DE SCROLL === */
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+}
+
+.scroll-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #9333ea 0%, #ec4899 50%, #f59e0b 100%);
+    width: 0%;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
+}
+
+nav {
+    position: fixed;
+    top: 3vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 1.25rem 3rem;
+    border-radius: 50px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    display: flex;
+    gap: 3rem;
+}
+
+nav a {
+    color: #111827;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.3s;
+    position: relative;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    color: #000;
+    transform: translateY(-2px);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #9333ea, #ec4899);
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* AJUSTEMENT DU BOUTON DE LANGUE */
+.language-toggle {
+    right: calc(8vw + 20px); 
+    position: fixed;
+    top: 3vh;
+    z-index: 10000;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 1.25rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    color: #111827;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.language-toggle:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px) rotate(5deg);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* NOUVEAU STYLE POUR LE BOUTON AUDIO */
+.audio-toggle {
+    position: fixed;
+    top: 3vh;
+    right: calc(8vw + 90px);
+    z-index: 10000;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 1.25rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    color: #111827;
+    font-weight: 600;
+    font-size: 1.5rem; 
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.audio-toggle:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles des icônes SVG (pour les logos sociaux) */
+.social-links a svg {
+    width: 24px; 
+    height: 24px;
+    fill: url(#gradient); 
+}
+
+/* Styles des icônes audio SVG */
+.audio-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+    border-radius: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    min-height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    position: relative;
+    padding: 3rem 0;
+    background: #f2f2f2;
+}
+
+.section-content, .section-image {
+    order: initial;
+}
+
+.section-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem 3rem;
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
+}
+
+.section-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    perspective: 1000px; 
+}
+
+/* === NOUVELLE ANIMATION DES IMAGES (sans changement de contraste) === */
+.section-image img.image-hover-effect {
+    width: 100%;
+    height: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.6s ease-out;
+    transform: scale(1);
+    
+    /* Empêche la sélection/glissement */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+}
+
+.section-image img.image-hover-effect:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+    
+/* Styles de base pour le contenu (sans animation par défaut pour toutes les sections) */
+.section-pretitle {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #9ca3af;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #1e293b, #334155);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle {
+    font-size: 1.5rem;
+    color: #6b7280;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.section-description {
+    color: #6b7280;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+/* ---------------------------------------------------- */
+/* === SECTION 1 (ANIMATION AU CHARGEMENT) === */
+/* ---------------------------------------------------- */
+
+/* Animation progressive du texte (Ligne par Ligne) pour la SECTION 1 */
+#section1 .section-pretitle { opacity: 0; animation: fadeInUp 0.8s ease-out 0.2s forwards; }
+#section1 .section-title { opacity: 0; animation: fadeInUp 0.8s ease-out 0.4s forwards; }
+#section1 .section-subtitle { opacity: 0; animation: fadeInUp 0.8s ease-out 0.6s forwards; }
+#section1 .section-description { opacity: 0; animation: fadeInUp 0.8s ease-out 0.8s forwards; }
+#section1 .info-box { opacity: 0; animation: fadeInUp 0.8s ease-out 1.0s forwards; }
+
+/* Fondu de l'image pour la SECTION 1 (Délai 0.4s) */
+#section1 .section-image img.image-hover-effect {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: fadeInScale 1.2s ease-out 0.4s forwards;
+}
+
+/* ---------------------------------------------------- */
+/* === SECTIONS 2+ (ANIMATION AU SCROLL) === */
+/* ---------------------------------------------------- */
+
+/* 1. État masqué (avant le scroll) */
+.animate-on-scroll {
+    opacity: 0; 
+    transform: translateY(10px); 
+}
+
+/* 2. État animé (déclenché par JS) - Texte */
+.animated.section-pretitle,
+.animated.section-title,
+.animated.section-subtitle,
+.animated.section-description,
+.animated.info-box {
+    opacity: 0; /* État de départ de l'animation */
+    animation-name: fadeInUp;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+/* 3. État animé (déclenché par JS) - Image */
+.animated.image-hover-effect {
+    opacity: 0; /* État de départ de l'animation */
+    transform: scale(0.95);
+    animation-name: fadeInScale;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+/* Décalage temporel pour l'animation progressive du contenu (texte et images) APRES LE SCROLL */
+.animated.section-pretitle { animation-delay: 0.2s; }
+.animated.section-title { animation-delay: 0.4s; }
+.animated.section-subtitle { animation-delay: 0.6s; }
+.animated.section-description { animation-delay: 0.8s; }
+.animated.info-box { animation-delay: 1.0s; }
+
+/* Fondu de l'image pour toutes les SECTIONS animées (Délai 0.4s) */
+.animated.image-hover-effect {
+    animation-name: fadeInScale;
+    animation-duration: 1.2s;
+    animation-delay: 0.4s; 
+}
+
+
+/* --- Styles pour les Onglets Projets --- */
+.project-tabs-container {
+    width: 100%;
+    margin-top: 2rem;
+    opacity: 0; /* Géré par .animate-on-scroll */
+    transform: translateY(10px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    border-radius: 1rem; /* Arrondir tout le conteneur */
+    overflow: hidden; /* Pour contenir les coins arrondis */
+    border: 1px solid rgba(255, 255, 255, 0.7); /* Bordure de verre */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+.animated.project-tabs-container {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.8s; /* Apparaît après le texte de la section */
+}
+
+.project-tabs {
+    display: flex;
+    gap: 0.5rem;
+    /* --- NOUVEAU STYLE GLASS --- */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 0.5rem 0.5rem 0 0.5rem; /* Espace pour les onglets */
+}
+
+.project-tab-button {
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #6b7280;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+    /* On enlève la transformation translateY */
+}
+
+.project-tab-button:hover {
+    color: #111827;
+    background: rgba(255, 255, 255, 0.5); /* Léger fond au survol */
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.project-tab-button.active {
+    color: #9333ea;
+    border-bottom-color: #9333ea;
+    background: white; /* Fond blanc pour l'onglet actif */
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.project-content-area {
+    background: white; /* Fond blanc opaque pour le contenu */
+    border: none; /* La bordure est sur le conteneur principal */
+    border-top: none;
+    border-radius: 0 0 1rem 1rem;
+    padding: 1.5rem;
+    
+    /* Hauteur fixe et scroll */
+    max-height: 400px; /* Hauteur max de la zone de contenu */
+    overflow-y: auto;
+}
+
+.project-tab-content {
+    display: none; /* Masqué par défaut */
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.project-tab-content.active {
+    display: flex; /* Affiché si actif */
+}
+
+.project-list-item {
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    /* Position relative pour l'étiquette de statut */
+    position: relative;
+}
+.project-list-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.project-list-item h4 {
+    font-size: 1.1rem;
+    color: #111827;
+    margin-bottom: 0.5rem;
+    /* --- Flexbox pour icône --- */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Style pour le lien GitHub */
+.project-github-link {
+    color: #9ca3af; /* Gris neutre */
+    transition: color 0.3s;
+    display: inline-flex; /* Pour l'alignement vertical */
+    align-items: center;
+}
+.project-github-link:hover {
+    color: #9333ea; /* Couleur principale au survol */
+}
+.project-github-link svg {
+    width: 18px;
+    height: 18px;
+}
+
+.project-list-item p {
+    color: #6b7280;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    /* Laisse de la place pour le statut à droite */
+    padding-right: 100px;
+}
+
+/* Style pour le statut du projet */
+.project-status {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #9ca3af;
+    
+    /* Positionnement en bas à droite */
+    position: absolute;
+    bottom: 1.5rem; /* Aligné avec le padding-bottom du parent */
+    right: 0;
+}
+/* Ajustement pour le dernier item qui n'a pas de padding-bottom */
+.project-list-item:last-child .project-status {
+    bottom: 0;
+}
+/* --- FIN STYLES PROJETS --- */
+
+
+/* Cas particulier : Compétences (contenu imbriqué) */
+.skills-grid .skill-category {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animated.skill-category:nth-child(1) { transition-delay: 0.8s; opacity: 1; transform: translateY(0); }
+.animated.skill-category:nth-child(2) { transition-delay: 1.0s; opacity: 1; transform: translateY(0); }
+.animated.skill-category:nth-child(3) { transition-delay: 1.2s; opacity: 1; transform: translateY(0); }
+.animated.skill-category:nth-child(4) { transition-delay: 1.4s; opacity: 1; transform: translateY(0); }
+
+/* Cas particulier : Formulaire (contenu imbriqué) */
+.contact-form .form-group,
+.contact-form .btn-submit {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animated.form-group:nth-child(1) { transition-delay: 0.8s; opacity: 1; transform: translateY(0); }
+.animated.form-group:nth-child(2) { transition-delay: 1.0s; opacity: 1; transform: translateY(0); }
+.animated.form-group:nth-child(3) { transition-delay: 1.2s; opacity: 1; transform: translateY(0); }
+.animated.form-group:nth-child(4) { transition-delay: 1.4s; opacity: 1; transform: translateY(0); }
+.animated.btn-submit { transition-delay: 1.6s; opacity: 1; transform: translateY(0); }
+
+
+/* --- Styles pour la barre de scroll (Projets et autres) --- */
+/* (Utilisé pour .project-content-area) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d1d5db; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+/* --- FIN STYLES SCROLLBAR --- */
+
+
+/* === ANIMATIONS KEYFRAMES === */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.info-box {
+    padding-top: 2rem;
+    border-top: 1px solid #d1d5db;
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.info-box-title {
+    flex-shrink: 0; 
+    min-width: 260px; /* Force l'alignement des descriptions */
+}
+
+.info-box-title h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    white-space: nowrap; 
+}
+
+.info-box-title p {
+    color: #9ca3af;
+    font-size: 0.875rem;
+    white-space: nowrap; 
+}
+
+.info-box-description {
+    color: #6b7280;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+    
+/* Styles de la grille de compétences (4 colonnes) */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-category h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #111827;
+}
+
+.skill-category ul {
+    list-style: none;
+}
+
+.skill-category li {
+    padding: 0.5rem 0;
+    color: #6b7280;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #f3f4f6;
+    transition: all 0.3s;
+}
+
+.skill-category li:hover {
+    color: #9333ea;
+    padding-left: 10px;
+    border-bottom-color: #9333ea;
+}
+
+/* === FORMULAIRE CENTRÉ ET AMÉLIORÉ === */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem auto 0 auto;
+    max-width: 500px;
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.875rem;
+    transition: color 0.3s;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #9333ea;
+    box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group input:focus + label,
+.form-group textarea:focus + label {
+    color: #9333ea;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Animation de validation des champs */
+.form-group input:valid,
+.form-group textarea:valid {
+    border-color: #10b981;
+}
+
+.form-group input:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown) {
+    border-color: #ef4444;
+}
+
+.btn-submit {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #9333ea, #ec4899);
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-submit::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-submit:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(147, 51, 234, 0.4);
+}
+
+.btn-submit:active {
+    transform: translateY(-1px);
+}
+
+/* Animation du bouton lors de l'envoi */
+.btn-submit.sending {
+    background: linear-gradient(135deg, #6b7280, #9ca3af);
+    cursor: not-allowed;
+    animation: pulse 1.5s infinite;
+}
+
+/* Style pour le statut du formulaire avec animations */
+#contact-status {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    min-height: 1.5rem;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+#contact-status.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#contact-status.success {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #065f46;
+    border: 2px solid #10b981;
+}
+
+#contact-status.error {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #991b1b;
+    border: 2px solid #ef4444;
+}
+
+footer {
+    background: #e8e8e8;
+    color: #374151;
+    padding: 3rem 3rem 2rem 3rem;
+    margin-top: 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #111827;
+}
+
+.footer-section p,
+.footer-section a {
+    color: #6b7280;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.footer-section a:hover {
+    color: #9333ea;
+    padding-left: 5px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    font-size: 1.2rem;
+}
+
+.social-links a:hover {
+    background: linear-gradient(135deg, #9333ea, #ec4899);
+    transform: translateY(-5px) rotate(10deg);
+    box-shadow: 0 5px 20px rgba(147, 51, 234, 0.4);
+}
+
+.social-links a:hover svg {
+    fill: white !important;
+}
+
+/* Styles pour les SVG avec dégradé */
+.social-links a svg {
+    width: 24px; 
+    height: 24px;
+    fill: url(#gradient);
+    transition: fill 0.3s;
+}
+
+.footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+@media (max-width: 1024px) {
+    .section-image img {
+        max-width: 100%;
+        height: auto;
+    }
+    section {
+        grid-template-columns: 1fr;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .section-title {
+        font-size: 3rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    body {
+        padding: 2vh 4vw 2vh 4vw;
+    }
+
+    nav {
+        padding: 0.75rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+    }
+    
+    .project-tabs {
+        gap: 0.2rem;
+    }
+    .project-tab-button {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    /* --- Réorganisation mobile (Zigzag) --- */
+    #section2 .section-content { order: 1; }
+    #section2 .section-image { order: 2; }
+
+    #section4 .section-content { order: 1; }
+    #section4 .section-image { order: 2; }
+
+    #section6 .section-content { order: 1; }
+    #section6 .section-image { order: 2; }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .section-content {
+        padding: 2rem 1.5rem;
+    }
+
+    body {
+        padding: 1vh 2vw 1vh 2vw;
+    }
+
+    .language-toggle {
+        right: calc(2vw + 30px);
+        width: 50px;
+        height: 50px;
+    }
+    .audio-toggle {
+        right: calc(2vw + 85px);
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .contact-form {
+        max-width: 100%;
+    }
+    
+    .info-box {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-tabs {
+        flex-direction: column; /* Onglets en colonne sur mobile */
+        gap: 0;
+        border-bottom: none;
+        background: rgba(255, 255, 255, 0.7); /* Garde le fond glass */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    .project-tab-button {
+        border-bottom: 2px solid #e5e7eb;
+        transform: translateY(0);
+        border-radius: 0; /* Pas d'arrondi sur mobile */
+    }
+    .project-tab-button:hover {
+        border-radius: 0;
+    }
+    .project-tab-button.active {
+        border-bottom-color: #9333ea;
+        border-radius: 0;
+    }
+    .project-content-area {
+        border: 1px solid #e5e7eb; /* Ajoute une bordure sur mobile */
+        max-height: 50vh; /* Plus d'espace sur mobile */
+        border-radius: 0 0 1rem 1rem;
+    }
+}
+
+/* --- CURSEUR CUSTOM (VERSION 2 : GLASSMORPHISME PLUS PRONONCÉ) --- */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 25px; /* Taille légèrement augmentée pour mieux voir l'effet */
+    height: 25px;
+    /* Dégradé avec plus de transparence et couleurs légèrement ajustées pour les reflets */
+    background: linear-gradient(135deg, rgba(147, 51, 234, 0.4), rgba(236, 72, 153, 0.4)); 
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    /* Augmentation du flou pour un effet plus "glass" */
+    backdrop-filter: blur(15px); 
+    -webkit-backdrop-filter: blur(15px);
+    transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease, border 0.3s ease; /* Transitions plus douces */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Ombre plus prononcée */
+    border: 2px solid rgba(255, 255, 255, 0.6); /* Bordure plus visible et semi-transparente pour l'effet de "verre" */
+}
+
+/* Effet de grossissement / changement de couleur au survol des liens */
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor,
+input[type="text"]:hover ~ .custom-cursor,
+input[type="email"]:hover ~ .custom-cursor,
+textarea:hover ~ .custom-cursor,
+.project-tab-button:hover ~ .custom-cursor,
+.skill-category li:hover ~ .custom-cursor,
+.social-links a:hover ~ .custom-cursor,
+.image-hover-effect:hover ~ .custom-cursor { 
+    width: 40px; /* Grossit davantage */
+    height: 40px;
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.5), rgba(147, 51, 234, 0.5)); /* Couleurs légèrement inversées/intensifiées */
+    backdrop-filter: blur(20px); /* Flou encore plus intense au survol */
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Ombre plus large */
+    border: 2px solid rgba(255, 255, 255, 0.8); /* Bordure plus opaque au survol */
+}
+
+/* --- Désactive le curseur custom sur mobile/tablette --- */
+@media (pointer: coarse) {
+    .custom-cursor {
+        display: none !important;
+    }
+
+    body, a, button, input, textarea,
+    .project-tab-button,
+    .skill-category li,
+    .social-links a,
+    .language-toggle,
+    .audio-toggle {
+        cursor: auto !important; /* Rétablit les curseurs par défaut */
+    }
+}
+
+
+/* --- STYLES PRELOADER --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Prend tout l'écran */
+    background: #f9fafb; /* Correspond au fond de votre .container */
+    z-index: 100000; /* Au-dessus de tout le reste */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.75s ease-out, visibility 0.75s ease-out; /* Fondu de sortie */
+    visibility: visible;
+    opacity: 1;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    
+    /* Utilise le dégradé de votre site */
+    border: 5px solid rgba(147, 51, 234, 0.2); /* Bordure légère */
+    border-top-color: #9333ea; /* Couleur principale du spinner */
+    
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Classe pour masquer le preloader (ajoutée par JS) */
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden; /* Cache et désactive les événements */
+    pointer-events: none; /* Permet de cliquer à travers */
+}

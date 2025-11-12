@@ -27,9 +27,17 @@
         <span class="audio-icon"></span>
     </a>
 
-    <a href="index-en.html" class="language-toggle" aria-label="Switch to English">EN</a>
+    <a href="index-en.html" class="language-toggle" aria-label="Switch to English">FR</a>
 
-    <nav>
+    <!-- Bouton burger (mobile uniquement) -->
+    <button class="burger-menu" id="burger-menu" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Navigation desktop et menu mobile -->
+    <nav id="main-nav">
         <a href="#section1">Accueil</a>
         <a href="#section2">Passion</a>
         <a href="#section3">Vision</a>
@@ -170,7 +178,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.082-.742.081-.727.081-.727 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.491.996.108-.775.418-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.797.576C20.695 21.77 24 17.279 24 12 24 5.373 18.627 0 12 0z"/></svg>
                                         </a>
                                     </h4>
-                                    <p>Application permettant de générer et de lire des sons à partir de notes musicales (avec fréquences, durées, effets sonores et harmonies). Objectif : comprendre la synthèse sonore numérique et la gestion d’échantillons audio.</p>
+                                    <p>Application permettant de générer et de lire des sons à partir de notes musicales (avec fréquences, durées, effets sonores et harmonies). Objectif : comprendre la synthèse sonore numérique et la gestion d'échantillons audio.</p>
                                     <span class="project-status">Projet Universitaire</span>
                                     <div class="tech-tags"><span class="tech-tag">Java</span></div>
                                 </div>
@@ -198,12 +206,12 @@
                                 </div>
                                 <div class="project-list-item">
                                     <h4>
-                                        <span>Application de gestion d’eau</span>
+                                        <span>Application de gestion d'eau</span>
                                         <a href="https://github.com/Gauthier-DeMassary" target="_blank" class="project-github-link" aria-label="Voir le code sur GitHub">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.082-.742.081-.727.081-.727 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.491.996.108-.775.418-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.797.576C20.695 21.77 24 17.279 24 12 24 5.373 18.627 0 12 0z"/></svg>
                                         </a>
                                     </h4>
-                                    <p>Application pour gérer la distribution et la consommation d’eau (facturation, suivi, relevés). Objectif : apprentissage de la logique CRUD et de la gestion de données métiers.</p>
+                                    <p>Application pour gérer la distribution et la consommation d'eau (facturation, suivi, relevés). Objectif : apprentissage de la logique CRUD et de la gestion de données métiers.</p>
                                     <span class="project-status">Projet Universitaire</span>
                                     <div class="tech-tags"><span class="tech-tag">Java</span></div>
                                 </div>
@@ -225,7 +233,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.082-.742.081-.727.081-.727 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.491.996.108-.775.418-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.797.576C20.695 21.77 24 17.279 24 12 24 5.373 18.627 0 12 0z"/></svg>
                                         </a>
                                     </h4>
-                                    <p>Reproduction du jeu Bomberman avec placement de bombes, explosion et déplacement sur une carte. Objectif : gestion d’animations, collisions et threads.</p>
+                                    <p>Reproduction du jeu Bomberman avec placement de bombes, explosion et déplacement sur une carte. Objectif : gestion d'animations, collisions et threads.</p>
                                     <span class="project-status">Projet Universitaire</span>
                                     <div class="tech-tags"><span class="tech-tag">JavaFX</span></div>
                                 </div>
@@ -236,7 +244,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.082-.742.081-.727.081-.727 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.491.996.108-.775.418-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.797.576C20.695 21.77 24 17.279 24 12 24 5.373 18.627 0 12 0z"/></svg>
                                         </a>
                                     </h4>
-                                    <p>Reproduction du jeu 2048 avec logique de fusion des tuiles et affichage graphique minimal. But : manipulation de la logique de grille et gestion d’événements.</p>
+                                    <p>Reproduction du jeu 2048 avec logique de fusion des tuiles et affichage graphique minimal. But : manipulation de la logique de grille et gestion d'événements.</p>
                                     <span class="project-status">Projet Universitaire</span>
                                     <div class="tech-tags"><span class="tech-tag">Java</span></div>
                                 </div>
@@ -253,12 +261,12 @@
                                 </div>
                                 <div class="project-list-item">
                                     <h4>
-                                        <span>Jeu d’échecs</span>
+                                        <span>Jeu d'échecs</span>
                                         <a href="https://github.com/Gauthier-DeMassary" target="_blank" class="project-github-link" aria-label="Voir le code sur GitHub">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.082-.742.081-.727.081-.727 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.491.996.108-.775.418-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.797.576C20.695 21.77 24 17.279 24 12 24 5.373 18.627 0 12 0z"/></svg>
                                         </a>
                                     </h4>
-                                    <p>Jeu d’échecs simplifié réalisé en Java. Permet d’apprendre la logique de déplacement et les conditions de victoire.</p>
+                                    <p>Jeu d'échecs simplifié réalisé en Java. Permet d'apprendre la logique de déplacement et les conditions de victoire.</p>
                                     <span class="project-status">Projet Universitaire</span>
                                     <div class="tech-tags"><span class="tech-tag">Java</span></div>
                                 </div>
@@ -294,7 +302,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.082-.742.081-.727.081-.727 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.491.996.108-.775.418-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.797.576C20.695 21.77 24 17.279 24 12 24 5.373 18.627 0 12 0z"/></svg>
                                         </a>
                                     </h4>
-                                    <p>Jeu Tetris complet réalisé avec Pygame. But : apprendre la logique de jeu, les boucles d’événements et les collisions.</p>
+                                    <p>Jeu Tetris complet réalisé avec Pygame. But : apprendre la logique de jeu, les boucles d'événements et les collisions.</p>
                                     <span class="project-status">Projet Personnel</span>
                                     <div class="tech-tags"><span class="tech-tag">Python (Pygame)</span></div>
                                 </div>
@@ -305,7 +313,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.082-.742.081-.727.081-.727 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.491.996.108-.775.418-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.797.576C20.695 21.77 24 17.279 24 12 24 5.373 18.627 0 12 0z"/></svg>
                                         </a>
                                     </h4>
-                                    <p>Un jeu d’arcade simple où le joueur fait naviguer un oiseau à travers des espaces entre des tuyaux. Objectif : s’exercer à la mécanique de jeu, à la détection des collisions et au suivi du score.</p>
+                                    <p>Un jeu d'arcade simple où le joueur fait naviguer un oiseau à travers des espaces entre des tuyaux. Objectif : s'exercer à la mécanique de jeu, à la détection des collisions et au suivi du score.</p>
                                     <span class="project-status">Projet Personnel</span>
                                     <div class="tech-tags"><span class="tech-tag">Python (Pygame)</span></div>
                                 </div>
@@ -319,7 +327,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.082-.742.081-.727.081-.727 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.491.996.108-.775.418-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.797.576C20.695 21.77 24 17.279 24 12 24 5.373 18.627 0 12 0z"/></svg>
                                         </a>
                                     </h4>
-                                    <p>Application affichant la météo d’une ville avec animation et interface épurée.</p>
+                                    <p>Application affichant la météo d'une ville avec animation et interface épurée.</p>
                                     <span class="project-status">Futur Projet</span>
                                     <div class="tech-tags"><span class="tech-tag">JavaScript</span>/<span class="tech-tag">API météo</span></div>
                                 </div>
@@ -330,7 +338,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.082-.742.081-.727.081-.727 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.491.996.108-.775.418-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.797.576C20.695 21.77 24 17.279 24 12 24 5.373 18.627 0 12 0z"/></svg>
                                         </a>
                                     </h4>
-                                    <p>Application de streaming musicale avec design en glassmorphisme et intégration d’une API pour écouter des morceaux.</p>
+                                    <p>Application de streaming musicale avec design en glassmorphisme et intégration d'une API pour écouter des morceaux.</p>
                                     <span class="project-status">Futur Projet</span>
                                     <div class="tech-tags"><span class="tech-tag">JavaScript</span>/<span class="tech-tag">React</span>/<span class="tech-tag">API audio</span></div>
                                 </div>
@@ -341,7 +349,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.082-.742.081-.727.081-.727 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.491.996.108-.775.418-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.797.576C20.695 21.77 24 17.279 24 12 24 5.373 18.627 0 12 0z"/></svg>
                                         </a>
                                     </h4>
-                                    <p>Application qui transforme la photo d’un utilisateur en avatar type “Bitmoji” façon Apple Memoji.</p>
+                                    <p>Application qui transforme la photo d'un utilisateur en avatar type "Bitmoji" façon Apple Memoji.</p>
                                     <span class="project-status">Futur Projet</span>
                                     <div class="tech-tags"><span class="tech-tag">Python (IA)</span></div>
                                 </div>
@@ -352,7 +360,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.082-.742.081-.727.081-.727 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.491.996.108-.775.418-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.797.576C20.695 21.77 24 17.279 24 12 24 5.373 18.627 0 12 0z"/></svg>
                                         </a>
                                     </h4>
-                                    <p>Jeu de lettres inspiré de “Motus” (deviner le mot en un nombre limité de coups). Objectif : travailler la logique de chaînes et l’affichage dynamique.</p>
+                                    <p>Jeu de lettres inspiré de "Motus" (deviner le mot en un nombre limité de coups). Objectif : travailler la logique de chaînes et l'affichage dynamique.</p>
                                     <span class="project-status">Futur Projet</span>
                                     <div class="tech-tags"><span class="tech-tag">Java</span>/<span class="tech-tag">JavaScript</span></div>
                                 </div>

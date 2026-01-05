@@ -452,16 +452,22 @@ section {
 }
 
 .project-tab-button:hover {
-    color: #9333ea;
     background: rgba(255, 255, 255, 0.5);
+    background: linear-gradient(90deg, #9333ea, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     border-radius: 0.5rem 0.5rem 0 0;
     transform: translateY(-1px);
 }
 
 .project-tab-button.active {
-    color: #9333ea;
-    border-bottom-color: #9333ea;
-    background: white;
+    background: linear-gradient(90deg, #9333ea, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    border-bottom: 3px solid;
+    border-image: linear-gradient(90deg, #9333ea, #ec4899) 1;
     border-radius: 0.5rem 0.5rem 0 0;
 }
 

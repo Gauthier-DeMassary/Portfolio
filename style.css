@@ -275,6 +275,7 @@ section {
     position: relative;
     padding: 3rem 0;
     background: #f2f2f2;
+    overflow: visible;
 }
 
 .section-content, .section-image {
@@ -332,8 +333,9 @@ section {
 .section-title {
     font-size: 4rem;
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.4;
     margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
     background: linear-gradient(135deg, #1e293b, #334155);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -96,7 +96,7 @@ body::before {
     justify-content: center;
     gap: 5px;
     padding: 0;
-    cursor: pointer;
+    cursor: none !important;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     transition: all 0.3s;
 }
@@ -194,7 +194,7 @@ nav a:hover::after {
     color: #111827;
     font-weight: 600;
     font-size: 1.05rem;
-    cursor: pointer;
+    cursor: none !important;
     transition: all 0.3s;
     text-decoration: none;
     display: flex;
@@ -206,6 +206,7 @@ nav a:hover::after {
     background: rgba(255, 255, 255, 0.9);
     transform: translateY(-2px) rotate(5deg);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border-color: #9333ea;
 }
 
 .audio-toggle {
@@ -225,7 +226,7 @@ nav a:hover::after {
     color: #111827;
     font-weight: 600;
     font-size: 1.5rem; 
-    cursor: pointer;
+    cursor: none !important;
     transition: all 0.3s;
     text-decoration: none;
     display: flex;
@@ -237,6 +238,7 @@ nav a:hover::after {
     background: rgba(255, 255, 255, 0.9);
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border-color: #9333ea;
 }
 
 .social-links a svg {
@@ -438,7 +440,7 @@ section {
 
 .project-tab-button {
     padding: 0.75rem 1.25rem;
-    cursor: pointer;
+    cursor: none !important;
     background: transparent;
     border: none;
     font-family: inherit;
@@ -450,9 +452,10 @@ section {
 }
 
 .project-tab-button:hover {
-    color: #111827;
+    color: #9333ea;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 0.5rem 0.5rem 0 0;
+    transform: translateY(-1px);
 }
 
 .project-tab-button.active {
@@ -769,7 +772,7 @@ section {
     border: none;
     border-radius: 0.5rem;
     font-weight: 700;
-    cursor: pointer;
+    cursor: none !important;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
@@ -958,6 +961,17 @@ textarea:hover ~ .custom-cursor,
     -webkit-backdrop-filter: blur(20px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.language-toggle:hover ~ .custom-cursor,
+.audio-toggle:hover ~ .custom-cursor {
+    width: 25px;
+    height: 25px;
+    background: linear-gradient(135deg, rgba(147, 51, 234, 0.4), rgba(236, 72, 153, 0.4)); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.6);
 }
 
 /* === PRELOADER === */

@@ -527,6 +527,7 @@ section {
 .project-github-link svg {
     width: 18px;
     height: 18px;
+    fill: currentColor;
 }
 
 .project-list-item p {
@@ -614,27 +615,7 @@ section {
     }
 }
 
-@keyframes slideInFromLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
 
-@keyframes slideInFromRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
 
 @keyframes pulse {
     0%, 100% {
